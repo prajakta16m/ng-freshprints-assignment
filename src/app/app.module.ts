@@ -5,12 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from './user.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, CommonModule, RouterModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    CommonModule,
+    RouterModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   exports: [AppComponent],
-  providers: [UserService],
+  providers: [],
 })
 export class AppModule {}
