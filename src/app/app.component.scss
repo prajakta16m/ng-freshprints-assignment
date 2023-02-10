@@ -1,8 +1,16 @@
 .navigationTab{
-  p {
-    cursor: pointer;
-    padding: 0 20px;
+
+  margin: 20px 0;
     display: inline-block;
-    clear: both;
+    width: 100%;
+
+  span {
+    float: right;
+    padding: 10px 10px;
+    cursor: pointer;
+  }
+
+  highlight {
+    border-bottom: 2px solid blue;
   }
 }
