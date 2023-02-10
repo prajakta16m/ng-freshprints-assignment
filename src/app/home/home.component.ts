@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public username: any = '';
+  public username: any = 'prajakta16m';
   constructor(private userService: UserService) {}
 
   search() {
