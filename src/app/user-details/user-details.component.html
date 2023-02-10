@@ -1,5 +1,9 @@
 <div>
   <div *ngIf="data">
-    {{ data.login }}
+    <div class="box-container">
+      <img [src]="data.avatar" />
+      <div>{{ data.login }}</div>
+      <div>{{ data.name }}</div>
+    </div>
   </div>
 </div>
