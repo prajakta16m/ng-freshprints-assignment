@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HistoryComponent } from './history/history.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { HistoryComponent } from './history/history.component';
     FormsModule,
   ],
   bootstrap: [AppComponent],
-  declarations: [AppComponent, HomeComponent, HistoryComponent],
+  declarations: [AppComponent, HomeComponent, HistoryComponent, UserDetailsComponent],
   exports: [AppComponent],
   providers: [UserService],
 })

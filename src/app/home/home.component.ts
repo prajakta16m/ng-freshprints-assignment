@@ -9,6 +9,8 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
   public username: any = 'prajakta16m';
+  public displayUser: User = null;
+
   constructor(private userService: UserService) {}
 
   search() {
@@ -17,6 +19,13 @@ export class HomeComponent implements OnInit {
         console.log('success');
         console.log(user);
 
+        this.displayUser = {
+          login: user['login'],
+          name: user['name'],
+          avatar: user['avatar_url'],
+        };
+
+        console.log(this.displayUser);
         /* const newUser = new User();
         newUser.login = user['login'];
         newUser.name = user['name'];
