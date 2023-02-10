@@ -1,16 +1,30 @@
-.navigationTab{
 
-  margin: 20px 0;
-    display: inline-block;
-    width: 100%;
+#app {
 
-  span {
-    float: right;
-    padding: 10px 10px;
-    cursor: pointer;
+  margin: 50px;
+  .navigationTab{
+
+    margin: 20px 0;
+      display: inline-block;
+      width: 100%;
+  
+    span {
+      float: right;
+      padding: 10px 50px;
+      cursor: pointer;
+    }
+  
+    .highlight {
+      border-bottom: 2px solid blue;
+    }
   }
 
-  highlight {
-    border-bottom: 2px solid blue;
+  .page-container {
+    margin: auto;
+    width: 55%;
+    height: 600px;
+    border: 1px solid green;
+    padding: 20px;
   }
+
 }

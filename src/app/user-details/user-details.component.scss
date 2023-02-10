@@ -1,6 +1,37 @@
 .box-container {
-  width: 200px;
-  height: 100px;
+  
+    margin: auto;
+    width: 75%;
+    height: 200px;
+    padding: 20px;
+
+    border: 1px solid gray;
+    margin-top: 20px;
+
+    .grid-col {
+      width: 50%;
+      height: 200px;
+      display: inline-block;
+
+      .title {
+        margin: 10px 0;
+        opacity: 0.5;
+      }
+      .grid-box{
+        height: 150px;
+        div {
+          position: absolute;
+        }
+      }
+    }
+
+    .img-container {
+      border: 1px solid #a9a9a9;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      position: absolute;
+    }
 
   img {
     max-width: 100%;

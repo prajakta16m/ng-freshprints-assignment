@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public username: any = '';
+  public username: any = 'prajakta16m';
   public displayUser: User = null;
   public storedUsers = [];
 

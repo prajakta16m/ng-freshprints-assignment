@@ -1,9 +1,33 @@
 <div>
   <div *ngIf="data">
     <div class="box-container">
-      <img [src]="data.avatar" />
-      <div>{{ data.login }}</div>
-      <div>{{ data.name }}</div>
+
+      <div class="grid-col">
+        <div class="title">User Image</div>
+        <div class="grid-box">
+          <div class="img-container">
+            <img [src]="data.avatar" />
+          </div>
+        </div>
+        <!-- <div class="grid-box">
+          <div class="img-container">
+            <img [src]="data.avatar" />
+          </div>
+        </div> -->
+        
+      </div>
+
+      <div class="grid-col">
+        <div class="title">GitHub User Name</div>
+        <div class="grid-box">
+            <div>{{data.name}}</div>
+        </div> 
+      </div>
+
+      
+      
+      
+      
     </div>
   </div>
 </div>
