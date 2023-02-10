@@ -7,6 +7,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UserService } from './user.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   imports: [
@@ -18,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
   ],
   bootstrap: [AppComponent],
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, HistoryComponent],
   exports: [AppComponent],
   providers: [UserService],
 })
