@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public username: any = 'prajakta16m';
+  public username: any = '';
   public displayUser: User = null;
   public storedUsers = [];
 
@@ -17,25 +17,27 @@ export class HomeComponent implements OnInit {
   search() {
     if (this.username.length == 0) return;
 
-    this.displayUser = this.getUser();
+    /* this.displayUser = this.getUser();
     if (this.displayUser == null) {
-      // Make API call
-      this.userService.getUser(this.username).subscribe(
-        (user) => {
-        this.displayUser = {
-          login: user['login'],
-          name: user['name'],
-          avatar: user['avatar_url'],
-        };
+      
+    } */
 
-        this.storedUsers.push(this.displayUser);
-        this.updateLocalStorage();
-      } , 
-      (error) => {
-        // API Error
-      }
-      );
+    // Make API call
+    this.userService.getUser(this.username).subscribe(
+      (user) => {
+      this.displayUser = {
+        login: user['login'],
+        name: user['name'],
+        avatar: user['avatar_url'],
+      };
+
+      this.storedUsers.push(this.displayUser);
+      this.updateLocalStorage();
+    } , 
+    (error) => {
+      // API Error
     }
+    );
   }
 
   updateLocalStorage() {
