@@ -7,21 +7,16 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  username: any = '';
-  constructor(
-    private userService: UserService
-  ) {}
+  public username: any = 'asdfdsf';
+  constructor(private userService: UserService) {}
 
   search() {
-    if(this.username.length > 0){
-      this.userService.getUser(this.username).subscribe(
-        (result) => {
-
-        },
-        (error) => {
-          
-        }
-      )
+    alert(this.username);
+    if (this.username.length > 0) {
+      this.userService.getUser(this.username).subscribe((user) => {
+        console.log('success');
+        console.log(user);
+      });
     }
   }
 
