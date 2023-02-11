@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -7,10 +8,12 @@ import { UserService } from '../user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   public username: any = 'prajakta16m';
   public displayUser: User;
   public storedUsers = [];
+
+  subscription: Subscription;
 
   constructor(private userService: UserService) {}
 
@@ -18,7 +21,7 @@ export class HomeComponent implements OnInit {
     if (this.username.length == 0) return;
 
     // Make API call
-    this.userService.getUser(this.username).subscribe(
+    this.subscription = this.userService.getUser(this.username).subscribe(
       (user) => {
         this.displayUser = {
           login: user['login'],
@@ -37,9 +40,9 @@ export class HomeComponent implements OnInit {
   updateLocalStorage() {
     // If new user other than old user, push
     if (
-      this.storedUsers.length > 0 && 
+      this.storedUsers.length > 0 &&
       this.storedUsers[this.storedUsers.length - 1].login ==
-      this.displayUser.login
+        this.displayUser.login
     ) {
       // skip adding
     } else {
@@ -50,30 +53,19 @@ export class HomeComponent implements OnInit {
 
   getLastUser() {
     let temp = null;
-
-    /*console.log('su', this.storedUsers);
-    for (let item of this.storedUsers) {
-      if (item.login == this.username) {
-        temp = item;
-        break;
-      }
-    }*/
     return temp;
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   ngOnInit() {
     this.storedUsers = JSON.parse(localStorage.getItem('users'));
-    if(this.storedUsers == null) {
+    if (this.storedUsers == null) {
       this.storedUsers = [];
     }
-
-    // If User exists in local storage, display ( save API call )
-    /*let usersList: any = localStorage.getItem('users');
-    if (usersList != null) {
-      this.storedUsers = JSON.parse(usersList);
-    } else {
-      usersList = [];
-      localStorage.setItem('users', usersList);
-    }*/
   }
 }
