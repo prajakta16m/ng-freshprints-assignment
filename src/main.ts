@@ -10,7 +10,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
   if (window['ngRef']) {
     window['ngRef'].destroy();
   }
-  window['ngRef'] = ref;
+  window['ngRef'] = ref+'/home';
 
   // Otherwise, log the boot error
 }).catch(err => console.error(err));
