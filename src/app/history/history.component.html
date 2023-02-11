@@ -2,6 +2,16 @@
 
   <div class="main-title">Your search history</div>
 
+  <div class="table header">
+    <div class="col1">
+      Search Term
+    </div>
+    <div class="col2">
+      Search Result
+    </div>
+  </div>
+  
+
   <div class="table" *ngFor="let user of searchHistory.reverse()">
     <div class="col1">
       <div>{{user.login}}</div>
