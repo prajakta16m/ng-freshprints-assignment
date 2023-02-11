@@ -10,6 +10,12 @@ export class HistoryComponent implements OnInit {
   searchHistory = [];
   constructor() { }
 
+  clear() {
+    
+    this.searchHistory = [];
+    localStorage.removeItem('users');
+  }
+
   ngOnInit() {
 
     // Get Data from local storage

@@ -13,7 +13,9 @@
 
   <button (click)="search()">Search</button>
 
+  
   <div ng-if="displayUser" class="main">
+    <div class="desc">Search Results</div>
     <app-user-details [data]="displayUser" [grid]=false></app-user-details>
   </div>
 </div>
