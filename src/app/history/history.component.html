@@ -1,7 +1,15 @@
 <div id="historyContainer" class="page-container">
 
   <div class="main-title">Your search history</div>
-  <span *ngFor="let user of searchHistory.reverse()">
+
+  <div class="table" *ngFor="let user of searchHistory.reverse()">
+    <div>{{user.login}}</div>
+    <div>
       <app-user-details [data]="user"></app-user-details>
+    </div>
+  </div>
+
+  <span *ngFor="let user of searchHistory.reverse()">
+      
   </span>
 </div>
