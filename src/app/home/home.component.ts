@@ -5,11 +5,11 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   public username: any = 'prajakta16m';
-  public displayUser: User = null;
+  public displayUser: User;
   public storedUsers = [];
 
   constructor(private userService: UserService) {}
@@ -17,53 +17,59 @@ export class HomeComponent implements OnInit {
   search() {
     if (this.username.length == 0) return;
 
-    /* this.displayUser = this.getUser();
-    if (this.displayUser == null) {
-      
-    } */
-
     // Make API call
     this.userService.getUser(this.username).subscribe(
       (user) => {
-      this.displayUser = {
-        login: user['login'],
-        name: user['name'],
-        avatar: user['avatar_url'],
-      };
+        this.displayUser = {
+          login: user['login'],
+          name: user['name'],
+          avatar: user['avatar_url'],
+        };
 
-      this.storedUsers.push(this.displayUser);
-      this.updateLocalStorage();
-    } , 
-    (error) => {
-      // API Error
-    }
+        this.updateLocalStorage();
+      },
+      (error) => {
+        // API Error
+      }
     );
   }
 
   updateLocalStorage() {
-    localStorage.setItem('users', JSON.stringify(this.storedUsers));
+    // If new user other than old user, push
+    if (
+      this.storedUsers[this.storedUsers.length - 1].login ==
+      this.displayUser.login
+    ) {
+      // skip adding
+    } else {
+      this.storedUsers.push(this.displayUser);
+      localStorage.setItem('users', JSON.stringify(this.storedUsers));
+    }
   }
 
-  getUser() {
+  getLastUser() {
     let temp = null;
-    console.log('su', this.storedUsers);
+
+    /*console.log('su', this.storedUsers);
     for (let item of this.storedUsers) {
       if (item.login == this.username) {
         temp = item;
         break;
       }
-    }
+    }*/
     return temp;
   }
 
   ngOnInit() {
+    this.storedUsers = JSON.parse(localStorage.getItem('users'));
+
     // If User exists in local storage, display ( save API call )
-    let usersList: any = localStorage.getItem('users');
+    /*let usersList: any = localStorage.getItem('users');
     if (usersList != null) {
       this.storedUsers = JSON.parse(usersList);
     } else {
       usersList = [];
       localStorage.setItem('users', usersList);
-    }
+    }*/
   }
 }

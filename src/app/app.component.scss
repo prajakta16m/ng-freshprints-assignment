@@ -1,7 +1,7 @@
 
 #app {
 
-  .title{
+  .main-title{
     margin: auto;
     width: 150px;
     padding: 10px 0 ;
@@ -10,6 +10,8 @@
 
   margin: 50px;
   .navigationTab{
+
+    border-bottom: 1px solid gray;
 
     margin: 20px 0;
       display: inline-block;
@@ -28,10 +30,11 @@
 
   .page-container {
     margin: auto;
-    width: 55%;
+    width: 80%;
     height: 600px;
     border: 1px solid green;
     padding: 20px;
+    margin-top: 30px;
   }
 
 }
