@@ -3,8 +3,10 @@
   <div class="main-title">Your search history</div>
 
   <div class="table" *ngFor="let user of searchHistory.reverse()">
-    <div>{{user.login}}</div>
-    <div>
+    <div class="col1">
+      <div>{{user.login}}</div>
+    </div>
+    <div class="col2">
       <app-user-details [data]="user"></app-user-details>
     </div>
   </div>
