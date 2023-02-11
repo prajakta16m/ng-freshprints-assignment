@@ -7,13 +7,10 @@
     <i class="fa fa-search icon"></i>
     <input class="input-field" type="text" [(ngModel)]="username" placeholder="Enter username" />
  
-    
   </div>
   
-
   <button (click)="search()">Search</button>
-
-  
+ 
   <div ng-if="displayUser" class="main">
     
     <app-user-details [data]="displayUser" [grid]=false></app-user-details>
