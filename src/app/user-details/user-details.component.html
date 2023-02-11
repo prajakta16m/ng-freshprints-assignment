@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="data" class="main">
-    <div class="box-container">
+    <div class="box-container" [ngClass]="{ 'is--grid' : grid , 'no--grid' : !grid}">
 
       <div class="grid-col">
         <div class="title">User Image</div>
@@ -9,11 +9,7 @@
             <img [src]="data.avatar" />
           </div>
         </div>
-        <!-- <div class="grid-box">
-          <div class="img-container">
-            <img [src]="data.avatar" />
-          </div>
-        </div> -->
+  
         
       </div>
 

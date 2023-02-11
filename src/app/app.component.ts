@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    localStorage.removeItem('users');
-    localStorage.setItem('users', JSON.stringify([]));
+    //localStorage.removeItem('users');
+    //localStorage.setItem('users', JSON.stringify([]));
   }
 
 }

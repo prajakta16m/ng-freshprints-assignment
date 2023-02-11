@@ -5,9 +5,7 @@
     height: 200px;
     padding: 20px;
 
-    border: 1px solid gray;
-    //margin-top: 20px;
-
+ 
     .grid-col {
       width: 50%;
       height: 200px;
@@ -29,11 +27,17 @@
       width: 100px;
       height: 100px;
       display: inline-block;
-      //position: absolute;
+      
     }
 
   img {
     max-width: 100%;
     max-height: 100%;
   }
+}
+.is--grid {
+  border-left: 1px solid gray;
+}
+.no--grid {
+  border: 1px solid gray;
 }

@@ -14,6 +14,7 @@ import { User } from '../user.model';
 })
 export class UserDetailsComponent implements OnInit, OnChanges {
   @Input() data: User;
+  @Input() grid: boolean;
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -21,6 +22,6 @@ export class UserDetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    
+   
   }
 }
