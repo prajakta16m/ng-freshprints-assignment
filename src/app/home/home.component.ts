@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   updateLocalStorage() {
     // If new user other than old user, push
     if (
+      this.storedUsers.length > 0 && 
       this.storedUsers[this.storedUsers.length - 1].login ==
       this.displayUser.login
     ) {
@@ -62,6 +63,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.storedUsers = JSON.parse(localStorage.getItem('users'));
+    if(this.storedUsers == null) {
+      this.storedUsers = [];
+    }
 
     // If User exists in local storage, display ( save API call )
     /*let usersList: any = localStorage.getItem('users');
