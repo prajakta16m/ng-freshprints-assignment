@@ -1,7 +1,5 @@
 #historyContainer {
 
-  overflow: auto;
-
   .table {
 
     border: 1px solid gray;
@@ -31,6 +29,9 @@
     }
     
   } 
+
+  overflow-y: auto;
+  overflow-x: hidden;
   
 }
 button {

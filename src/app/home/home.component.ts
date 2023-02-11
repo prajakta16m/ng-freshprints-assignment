@@ -9,15 +9,23 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  public username: any = 'prajakta16m';
+  public username: any = '';
   public displayUser: User;
   public storedUsers = [];
+
+  usernameRegex = /^[a-z0-9_.]+$/;
 
   subscription: Subscription;
 
   constructor(private userService: UserService) {}
 
   search() {
+
+    if(!this.usernameRegex.test(this.username) || this.username.length > 100){
+        return;
+    }
+
+
     if (this.username.length == 0) return;
 
     // Make API call
